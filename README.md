@@ -1,1 +1,1 @@
-Confidence Interval Game
+Confidence Interval Game based on AP Statistics

@@ -9,7 +9,7 @@ stopButton.style.display = "none";
 
 // Moving line
 let interval = 300;
-let speed = 4;
+let velocity = 500/1000;
 let direction = 1;
 let intervalLength = 100;
 intervalY = canvas.height - 150;
@@ -19,6 +19,9 @@ let targetX = 250;
     
 // Game state
 let gameRunning = false;
+
+const fps = 120;
+const dt = 1000 / fps;
 
 function drawNumberLine({
   x = 50,
@@ -110,21 +113,21 @@ function update() {
     if (!gameRunning) return;
 
     // Move line
-    interval += speed * direction;
+    interval += velocity * dt;
 
     // Bounce off walls
     if (interval + intervalLength >= canvas.width) {
-        direction = -1;
+        velocity *= -1;
     }
 
     if (interval <= 0) {
-        direction = 1;
+        velocity *= -1;
     }
 
     draw();
-
-    requestAnimationFrame(update);
 }
+
+setInterval(update, dt);
 
 // Button press
 
@@ -132,8 +135,8 @@ startButton.addEventListener("click", () => {
     if (gameRunning) return;
     stopButton.style.display = "inline-block";
     startButton.style.display = "none";
-    interval = 0;
-    direction = 1;
+    interval = 300;
+    velocity = Math.abs(velocity);
     resultText.textContent = "";
     gameRunning = true;
     targetX = Math.floor(Math.random() * (canvas.width - 2 * intervalLength + 1)) + intervalLength

@@ -9,7 +9,7 @@ stopButton.style.display = "none";
 
 // Moving line
 let interval = 300;
-let velocity = 500/1000;
+let velocity = 900/1000;
 let direction = 1;
 let intervalLength = 100;
 intervalY = canvas.height - 150;

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <title>Capture The Parameter!</title>
+    <style>
+      body {
+        background: white;
+        color: black;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      canvas {
+        display: block;
+        margin: 20px auto;
+      }
+
+      button {
+        padding: 12px 24px;
+        font-size: 18px;
+        cursor: pointer;
+        border: none;
+        border-radius: 10px;
+      }
+
+      
+      #result {
+        margin-top: 20px;
+        font-size: 24px;
+      }
+
+      #stopButton {
+        background-color: red;
+        color: white;
+      }
+      #startButton {
+        background-color: green;
+        color: white;
+      }
+      button:hover {
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Capture The Parameter</h1>
+    <p>You have a confidence interval. Your goal is to capture the true parameter (green line) with 
+      as much accuracy as possible. Good luck!
+    </p>
+
+    <canvas id="gameCanvas" width="800" height="200"></canvas>
+
+    <button id="stopButton">Capture</button>
+    <button id="startButton">Start</button>
+
+    <div id="result"></div>
+
+    
+  </body>
+  <script src="script.js"></script>
+</html>

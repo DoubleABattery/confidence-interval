@@ -4,8 +4,17 @@ const ctx = canvas.getContext("2d");
 const resultText = document.getElementById("result");
 const stopButton = document.getElementById("stopButton");
 const startButton = document.getElementById("startButton");
+const captureCount = document.getElementById("captureCount");
+const scoreMessage = document.getElementById("scoreMessage");
+const captureMessage = document.getElementById("captureMessage");
+const restartButton = document.getElementById("restartButton");
 
+restartButton.style.display = "none";
 stopButton.style.display = "none";
+scoreMessage.style.display = "none";
+
+let captures = 0;
+let total = 0;
 
 // Moving line
 let interval = 300;
@@ -154,15 +163,36 @@ stopButton.addEventListener("click", () => {
 
     const lineEnd = interval + intervalLength;
 
+    total++;
+
     // Check if line is inside target
     if (lineEnd >= targetX && interval <= targetX + 6) {
         resultText.textContent = "Your interval captured the true parameter!";
         resultText.style.color = "lime";
+        captures++;
+        captureCount.textContent = `${captures}`;
     }
     else {
         resultText.textContent = "Your interval did not capture the true parameter!";
         resultText.style.color = "red";
     }
+
+    if (total === 10) {
+        startButton.style.display = "none";
+        restartButton.style.display = "block";
+        scoreMessage.style.display = "block";
+        captureMessage.textContent = 10*captures;
+    }
+});
+
+restartButton.addEventListener("click", () => {
+    captures = 0;
+    total = 0;
+    restartButton.style.display = "none";
+    startButton.style.display = "inline-block";
+    scoreMessage.style.display = "none";
+    captureCount.textContent = `${captures}`;
+    resultText.textContent = "";
 });
 
 drawInterval();

@@ -23,6 +23,7 @@
         cursor: pointer;
         border: none;
         border-radius: 10px;
+        color: white;
       }
 
       
@@ -33,14 +34,26 @@
 
       #stopButton {
         background-color: red;
-        color: white;
       }
       #startButton {
         background-color: green;
-        color: white;
+      }
+      #restartButton {
+        background-color: lime;
+        margin: 20px auto;
       }
       button:hover {
         opacity: 0.8;
+      }
+
+      #count {
+        margin-top: 20px;
+        font-size: 20px;
+      }
+      #scoreMessage {
+        margin-top: 10px;
+        font-size: 24px;
+        font-weight: bold;
       }
     </style>
   </head>
@@ -54,8 +67,10 @@
 
     <button id="stopButton">Capture</button>
     <button id="startButton">Start</button>
-
     <div id="result"></div>
+    <div id="count">Score: <span id="captureCount">0</span> / 10</div>
+    <div id="scoreMessage">Your interval captured the true parameter <span id="captureMessage"></span>% of the time.</div>
+    <button id="restartButton">Restart</button>
 
     
   </body>

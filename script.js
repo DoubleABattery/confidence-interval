@@ -20,7 +20,7 @@ let total = 0;
 
 // Moving line
 let interval = 300;
-let velocity = 1.2;
+let velocity = 1;
 let direction = 1;
 let intervalLength = 100;
 intervalY = canvas.height - 150;

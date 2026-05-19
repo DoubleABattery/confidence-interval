@@ -55,6 +55,26 @@
         font-size: 24px;
         font-weight: bold;
       }
+      #specialMessage {
+        background: linear-gradient(
+          90deg,
+          red,
+          orange,
+          green,
+          blue,
+          indigo,
+          violet
+        );
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        /* Optional standard property */
+        background-clip: text;
+        color: transparent;
+        font-weight: bold;
+        font-size: 28px;
+      }
     </style>
   </head>
   <body>
@@ -70,6 +90,7 @@
     <div id="result"></div>
     <div id="count">Score: <span id="captureCount">0</span> / 10</div>
     <div id="scoreMessage">Your interval captured the true parameter <span id="captureMessage"></span>% of the time.</div>
+    <div id="specialMessage">+Mamana points for 100% accuracy!</div>
     <button id="restartButton">Restart</button>
 
     

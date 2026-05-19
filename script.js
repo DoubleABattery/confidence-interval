@@ -8,17 +8,19 @@ const captureCount = document.getElementById("captureCount");
 const scoreMessage = document.getElementById("scoreMessage");
 const captureMessage = document.getElementById("captureMessage");
 const restartButton = document.getElementById("restartButton");
+const specialMessage = document.getElementById("specialMessage");
 
 restartButton.style.display = "none";
 stopButton.style.display = "none";
 scoreMessage.style.display = "none";
+specialMessage.style.display = "none";
 
 let captures = 0;
 let total = 0;
 
 // Moving line
 let interval = 300;
-let velocity = 900/1000;
+let velocity = 1.2;
 let direction = 1;
 let intervalLength = 100;
 intervalY = canvas.height - 150;
@@ -182,6 +184,9 @@ stopButton.addEventListener("click", () => {
         restartButton.style.display = "block";
         scoreMessage.style.display = "block";
         captureMessage.textContent = 10*captures;
+        if (captures === 10) {
+            specialMessage.style.display = "block";
+        }
     }
 });
 

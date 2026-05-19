@@ -53,7 +53,6 @@ function drawNumberLine({
 
   const range = max - min;
   const spacing = length / range;
-
   // Draw ticks and labels
   for (let i = min; i <= max; i++) {
     const px = x + (i - min) * spacing;
